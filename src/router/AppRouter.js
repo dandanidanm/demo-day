@@ -9,6 +9,7 @@ import { login } from "../actions/auth";
 import { firebase } from "../firebase/firebase-config";
 import Loading from "../components/Loading";
 import PatientData from "../components/form/PatientData"
+import User from "../components/user/User";
 
 
 const AppRouter = () => {
@@ -45,7 +46,7 @@ const AppRouter = () => {
         <PrivateRoute
           exact
           path="/"
-          component={PatientData}
+          component={User}
           isAuthenticated={isLoggedIn}
         />
 

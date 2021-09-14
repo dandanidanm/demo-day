@@ -3,7 +3,7 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { SavePatientData } from "../../actions/patientAction";
-import { startLogout } from "../../actions/auth";
+
 
 const habitadData = [
   {id:"habitad-1", habitad: "Domestico" },
@@ -61,9 +61,6 @@ const PatientData = () => {
 
   return (
     <>
-      <Button to="/auth/Login" onClick={() => dispatch(startLogout())}>
-        Logout
-      </Button>
       <Form onSubmit={handleSavePatientData}>
         <Row md={3} className="justify-content-center">
           <Form.Label className="text-center">Datos del paciente</Form.Label>

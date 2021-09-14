@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import {SavePerfilData} from "../../actions/perfilActions"
-import { startLogout } from "../../actions/auth";
+
 const User = () => {
   const dispatch = useDispatch();
 
@@ -31,9 +31,6 @@ const User = () => {
   });
   return (
     <>
-        <button type="button" to="/auth/Login" onClick={() => dispatch(startLogout())}>
-          Logout
-        </button>
       <Formik
         initialValues={{
           fotoUser:null,
