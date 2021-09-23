@@ -7,7 +7,7 @@ export const SavePatientData = (patient) => {
     const uid = getState().auth.uid;
     
     const addPatient = {
-      vacunacion: patient.vacunacion,
+      vacunacion: [...patient.vacunacion, patient.vacunacion],
       habitad: patient.habitad,
       desparasitacion: patient.desparasitacion,
       producto: patient.producto,
@@ -18,7 +18,8 @@ export const SavePatientData = (patient) => {
       enfermedades: patient.enfermedades,
     };
     
-    const docRef = await db.collection(`${uid}/patient/data`).add(addPatient);
+    const docRef = await db.collection(`user`).doc(`${uid}`).collection("pro").doc("2").set(addPatient);
+    /* const docRef = await db.collection(`${uid}/patient/data`).add(addPatient); */
     dispatch(Addpatient(docRef.id, addPatient));
   };
 };

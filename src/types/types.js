@@ -12,5 +12,12 @@ export const types ={
     perfil: '[User] perfil',
 
 
+    historiaClinica: '[Historia] historia add',
+
+    
+    PropietarioData: '[Propietario] propietario add',
+    
+    
+
     patientDataAdd: '[Patient] patient Data Add'
 }

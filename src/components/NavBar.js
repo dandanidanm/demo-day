@@ -1,30 +1,34 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from 'react-redux'
-import { startLogout } from '../actions/auth'
-import vetApp from "../styles/vetApp.jpeg"
+import { useDispatch, useSelector } from "react-redux";
+import { startLogout } from "../actions/auth";
+import vetApp from "../styles/vetApp.jpeg";
 
 const NavBar = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const { name } = useSelector(state => state.auth)
-  
+  const { imagen, name } = useSelector((state) => state.auth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("buscando...")
-  };
-  const handleClick = () => {
-    console.log("click");
+    console.log("buscando...");
   };
   const handleChange = (e) => {
-   console.log('handleChange')
-  }
+    e.preventDefault();
+    console.log("handleChange");
+  };
 
   return (
-    <div>
+    <>
       <Navbar collapseOnSelect bg="light mx-auto" expand="sm">
-        <Navbar.Brand href="/"><img src={vetApp} alt="logo" style={{ width: "50px", height: "50px" }} /></Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img
+            src={vetApp}
+            alt="logo"
+            style={{ width: "50px", height: "50px" }}
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -32,12 +36,29 @@ const NavBar = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link to="/">Inicio</Nav.Link>
-            <Nav.Link to="/">nav</Nav.Link>
-            <Nav.Link to="/auth/Login" onClick={() => dispatch(startLogout())}>Logout</Nav.Link>           
+            <NavLink to="/">Inicio</NavLink>
+            <NavLink to="/user">Perfil</NavLink>
+            <NavLink to="/form/patient">Paciente</NavLink>
+            <NavLink to="/form/historia">Historial Clinico</NavLink>
+
+            {name ? (
+              <NavLink to="/" onClick={() => dispatch(startLogout())}>
+                Logout
+              </NavLink> 
+            ) : (
+              <NavLink to="/auth/login">login</NavLink>
+            )}
+
             <p className="p-2 text-dark">{name}</p>
+            {
+              name ?
+              <img src={`${imagen}`} alt={name} />
+              :
+              <img src={`${imagen}`} alt={name} style={{display: "none"}} />
+
+            }
           </Nav>
-          <Form className="d-flex" onSubmit={handleSubmit} >
+          <Form className="d-flex" onSubmit={handleSubmit}>
             <FormControl
               type="search"
               placeholder="Search"
@@ -45,14 +66,13 @@ const NavBar = () => {
               aria-label="Search"
               onChange={handleChange}
             />
-            <Button variant="outline-success" onClick={handleClick}>
+            <Button type="submit" variant="outline-success">
               Search
             </Button>
           </Form>
-     
         </Navbar.Collapse>
       </Navbar>
-    </div>
+    </>
   );
 };
 

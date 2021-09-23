@@ -12,7 +12,8 @@ import {
         .auth()
         .signInWithPopup(googleAuthProvider)
         .then(({ user }) => {
-          dispatch(login(user.uid, user.displayName));
+          console.log(user.photoURL)
+          dispatch(login(user.uid, user.displayName, user.photoURL));
         });
     };
   };
@@ -74,11 +75,12 @@ import {
     };
   };
   
-  export const login = (uid, displayName) => ({
+  export const login = (uid, displayName,photoURL) => ({
     type: types.login,
     payload: {
       uid,
       displayName,
+      photoURL
     },
   });
   

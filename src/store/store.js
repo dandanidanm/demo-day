@@ -9,6 +9,8 @@ import { authReducer } from "../reducers/authReducer";
 import { uiReducer } from "../reducers/uiReducer";
 import { patientReducer } from "../reducers/patientReducer"
 import { userReducer } from "../reducers/userReducer";
+import { historiaReducer } from "../reducers/historiaReducer";
+import { propietarioReducer } from "../reducers/propietarioReducer";
 
   
   const composeEnhancers =
@@ -19,8 +21,10 @@ import { userReducer } from "../reducers/userReducer";
   const reducer = combineReducers({
     auth: authReducer,
     ui: uiReducer,
+    user: userReducer,
+    historia: historiaReducer,
+    propietario: propietarioReducer,
     patient: patientReducer,
-    user: userReducer
   });
   
   export const store = createStore(

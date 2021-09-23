@@ -8,7 +8,7 @@ const initialState = {
     switch (action.type) {
       case types.perfil:
         return {
-          user: [...action.payload]
+          user: {...action.payload}
         };
   
       default:
