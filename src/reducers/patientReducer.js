@@ -9,7 +9,7 @@ const initialState = {
       case types.patientDataAdd:
         return {
           ...state,
-          patient: [...action.payload]
+          patient: { ...action.payload }
         };
   
       default:

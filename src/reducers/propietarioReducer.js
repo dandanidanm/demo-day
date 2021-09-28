@@ -9,7 +9,7 @@ const initialState = {
       case types.PropietarioData:
         return {
           ...state,
-          propietario: [...action.payload]
+          propietario: {...action.payload}
         };
        
       default:

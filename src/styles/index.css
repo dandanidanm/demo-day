@@ -1,176 +1,216 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,900;1,400;1,800&display=swap");
 
-*{
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    font-size: 1rem;
-    box-sizing: border-box;
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    background-color: #fff;
-    
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  background-color: transparent;
 }
-
+.registro{
+  height: 100vh;
+}
+.registro > h1{
+  color: #fff;
+  font-weight: bold;
+}
+.form-signin >h1 {
+  color: #fff;
+  font-weight: bold;
+}
 .form-signin {
-    width: 80%;
-    max-width: 330px;
-    padding: 10px;
-    margin: auto;
-  }
-  
-  .form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-  }
-  .form-signin .form-control:focus {
-    z-index: 1;
-  }
-  .form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  
-  .google-btn {
-    cursor: pointer;
-    margin-top: 5px;
-    width: 100%;
-    height: 42px;
-    background-color: #339967;
-    border-radius: 2px;
-    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
-    transition: box-shadow .3s ease;
+  width: 80%;
+  max-width: 330px;
+  padding: 10px;
+  margin: auto;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 1;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.google-btn {
+  cursor: pointer;
+  margin-top: 5px;
+  width: 100%;
+  height: 42px;
+  background-color: #339967;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease;
 }
 
 .google-icon-wrapper {
-    position: absolute;
-    margin-top: 1px;
-    margin-left: 1px;
-    width: 40px;
-    height: 40px;
-    border-radius: 2px;
+  position: absolute;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
 }
 
 .google-icon {
-    position: absolute;
-    margin-top: 11px;
-    margin-left: 11px;
-    width: 18px;
-    height: 18px;
+  position: absolute;
+  margin-top: 11px;
+  margin-left: 11px;
+  width: 18px;
+  height: 18px;
 }
 
 .btn-text {
-    float: right;
-    margin: 11px 40px 0 0;
-    font-size: 14px;
-    letter-spacing: 0.2px;
+  float: right;
+  margin: 11px 40px 0 0;
+  font-size: 14px;
+  letter-spacing: 0.2px;
 }
-
 
 .nothing__main-content {
   align-items: center;
-  background-color: #5C62C5;
+  background-color: #339967;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 400px;
   max-width: 330px;
- 
 }
 
 .nothing__main-content p {
   text-align: center;
 }
 
-
 .formulario {
   display: flex;
+  
   flex-wrap: wrap;
-	min-width: 400px;
-	margin-top: 50px;
-	background: #fff;
-	border-radius: 5px;
-	padding: 20px;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  min-width: 400px;
+  margin-top: 50px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.397) 0px 1px 4px;
+}
+.formulario> h1 {
+  color: white;
+  font-weight:900
+}
+.formulario > h2{
+  color: white;
+  font-weight:900
 }
 
+.formulario > div > div > h3 {
+  color: white;
+  font-weight:900
+}
+.formulario > div > h3 {
+  color: white;
+  font-weight:900
+}
 .formulario > div {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .formulario label {
-	display: block;
-	font-weight: 600;
-	font-size: 14px;
-	margin-bottom: 5px;
-	color: #1f1f1f;
+  display: block;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #fffefe;
+ 
 }
 
 .formulario input,
 .formulario textarea {
-	font-family: 'Open Sans', sans-serif;
-	width: 100%;
-	border-radius: 5px;
-	border: 2px solid #e2e2e2;
-	font-size: 18px;
-	padding: 10px;
-	margin-bottom: 5px;
-	color: #1f1f1f;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+  
 }
-
+.formulario input{
+  width: 200px;
+  margin: 0 50px;
+}
 .formulario input:focus {
-	outline: none;
-	border: 2px solid #0085FF;
+  outline: none;
+  border: 2px solid #0085ff;
 }
 
 .formulario .error {
-	color: #e92b2d;
-	font-weight: 600;
-	font-size: 12px;
+  color: #e92b2d;
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .formulario button[type="submit"] {
-	display: block;
-	background: #0085FF;
-	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	padding: 10px;
-	border-radius: 5px;
-	color: #fff;
-	font-size: 16px;
-	transition: .3s ease all;
+  display: block;
+  background: #0085ff;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease all;
 }
 
 .formulario button[type="submit"]:hover {
-	background: #0051ff;
+  background: #0051ff;
 }
 
 .formulario .exito {
-	text-align: center;
-	font-size: 14px;
-	padding-top: 20px;
-	color: #02a802;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 20px;
+  color: #02a802;
 }
 
 .formulario input[type="radio"] {
-	width: auto;
+  width: auto;
+  margin-left: 5px;
+}
+
+.linknav {
+  color:#fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.linknav:hover{
+  background-color: #1ff38c;
 }

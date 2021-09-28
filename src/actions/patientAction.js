@@ -1,13 +1,16 @@
 import { types } from "../types/types";
 import { db } from "../firebase/firebase-config";
 
-
 export const SavePatientData = (patient) => {
-  return async (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    
+  return async (dispatch) => {
     const addPatient = {
-      vacunacion: [...patient.vacunacion, patient.vacunacion],
+      pacienteNombre: patient.pacienteNombre,
+      pacienteEspecie: patient.pacienteEspecie,
+      pacienteRaza: patient.pacienteRaza,
+      pacienteSexo: patient.pacienteSexo,
+      pacienteEdad: patient.pacienteEdad,
+      pacienteSenales: patient.pacienteSenales,
+      vacunacion: patient.vacunacion,
       habitad: patient.habitad,
       desparasitacion: patient.desparasitacion,
       producto: patient.producto,
@@ -17,9 +20,9 @@ export const SavePatientData = (patient) => {
       tipoAlimento: patient.tipoAlimento,
       enfermedades: patient.enfermedades,
     };
-    
-    const docRef = await db.collection(`user`).doc(`${uid}`).collection("pro").doc("2").set(addPatient);
-    /* const docRef = await db.collection(`${uid}/patient/data`).add(addPatient); */
+
+    const docRef = await db.collection("mascota").add(addPatient);
+
     dispatch(Addpatient(docRef.id, addPatient));
   };
 };

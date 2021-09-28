@@ -9,7 +9,6 @@ import { authReducer } from "../reducers/authReducer";
 import { uiReducer } from "../reducers/uiReducer";
 import { patientReducer } from "../reducers/patientReducer"
 import { userReducer } from "../reducers/userReducer";
-import { historiaReducer } from "../reducers/historiaReducer";
 import { propietarioReducer } from "../reducers/propietarioReducer";
 
   
@@ -22,7 +21,6 @@ import { propietarioReducer } from "../reducers/propietarioReducer";
     auth: authReducer,
     ui: uiReducer,
     user: userReducer,
-    historia: historiaReducer,
     propietario: propietarioReducer,
     patient: patientReducer,
   });

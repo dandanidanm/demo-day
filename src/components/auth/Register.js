@@ -46,7 +46,7 @@ const Register = () => {
   };
 
   return (
-    <div className="Registro py-5 container text-center">
+    <div className="registro py-5 container text-center">
       <form className="form-signin" onSubmit={handleRegister}>
         <h1 className="h3 mb-3 font-weight-normal">
           ¡Registrate en nuestro sistema!
@@ -59,7 +59,7 @@ const Register = () => {
         :null
         }
         <label htmlFor="inputemailaddress" className="sr-only">
-          Correo electrónico
+     
         </label>
 
         <input

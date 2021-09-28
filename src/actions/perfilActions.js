@@ -10,25 +10,24 @@ export const SavePerfilData = (user) => {
     const uid = getState().auth.uid;
 
     const addNewUser = {
+      fotoUser: fileUrl,
       nombre: user.nombre,
       apellido: user.apellido,
       email:user.email,
       numTarjetaPro: user.numTarjetaPro,
-      titulo: fileUrl,
+      titulo: user.titulo,
       telefono: user.telefono,
-      tarjetaProImg: user.tarjetaProImg,
-      firmaImg: fileUrl,
-      fotoUser: fileUrl
+     
     };
 console.log(addNewUser)
-    const docRef = await db.collection("user").doc(`${uid}`).set(addNewUser);
+    const docRef = await db.collection('user').doc(`id-${uid}`).set(addNewUser);
     dispatch(addUser(docRef, addNewUser));
     
   };
 };
 
 export const startUploading = (file) => {
-  return async (dispatch) => {
+  return async () => {
 
       Swal.fire({
           title: 'Uploading...',
@@ -47,7 +46,7 @@ export const startUploading = (file) => {
 }
 
 
-export const addUser = ( user) => ({
+export const addUser = ( user ) => ({
   type: types.perfil,
   payload: {
     ...user,

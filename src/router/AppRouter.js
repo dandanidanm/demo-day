@@ -12,17 +12,34 @@ import { useDispatch } from "react-redux";
 import { login } from "../actions/auth";
 import { firebase } from "../firebase/firebase-config";
 import Loading from "../components/Loading";
-import PatientData from "../components/form/PatientData";
 import User from "../components/user/User";
-import Navbar from "../components/NavBar";
-import Inicio from "../components/Inicio";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import HistorialPaciente from "../components/form/HistorialPaciente";
-import HistorialPropietario from "../components/form/HistorialPropietario";
 import HistorialClinica from "../components/form/HistorialClinica";
+import PlaceToVisit from "../components/inicio/PlaceToVisit";
+import { makeStyles } from "@material-ui/core/styles";
+import Header from "../components/inicio/Header";
+import Medscontainer from "../components/api/MedsContainer";
+import Calculator from "../components/Calculadora";
+import NavBar from "../components/NavBar";
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    
+    backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg.jpg"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    height: "100%",
+    width: "100vw"
+  }
+}));
 
 const AppRouter = () => {
+  const classes = useStyles();
+
   const [checking, setChecking] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dispatch = useDispatch();
@@ -41,46 +58,60 @@ const AppRouter = () => {
   if (checking) {
     return <Loading />;
   }
+
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Inicio} />
-        <PublicRoute
-          exact
-          path="/auth/login"
-          component={Login}
-          isAuthenticated={isLoggedIn}
-        />
-        <PublicRoute
-          exact
-          path="/auth/register"
-          component={Register}
-          isAuthenticated={isLoggedIn}
-        />
+    <div className={classes.root}>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={PlaceToVisit} />
+          <PublicRoute
+            exact
+            path="/auth/login"
+            component={Login}
+            isAuthenticated={isLoggedIn}
+          />
+          <PublicRoute
+            exact
+            path="/auth/register"
+            component={Register}
+            isAuthenticated={isLoggedIn}
+          />
+          <PublicRoute
+            exact
+            path="/meds"
+            component={Medscontainer}
+            isAuthenticated={isLoggedIn}
+          />
+          <PublicRoute
+            exact
+            path="/meds"
+            component={Calculator}
+            isAuthenticated={isLoggedIn}
+          />
+          <PrivateRoute
+            exact
+            path="/user"
+            component={User}
+            isAuthenticated={isLoggedIn}
+          />
+          <PrivateRoute
+            path="/form/historia"
+            component={HistorialClinica}
+            isAuthenticated={isLoggedIn}
+          />
 
-        <PrivateRoute
-          exact
-          path="/user"
-          component={User}
-          isAuthenticated={isLoggedIn}
-        />
-         <PrivateRoute
-          path="/form/historia"
-          component={HistorialClinica}
-          isAuthenticated={isLoggedIn}
-        /> 
+          <PrivateRoute
+            exact
+            path="/form/patient"
+            component={HistorialPaciente}
+            isAuthenticated={isLoggedIn}
+          />
 
-        <PrivateRoute
-          exact
-          path="/form/patient"
-          component={PatientData}
-          isAuthenticated={isLoggedIn}
-        />
-
-        <Redirect to="/" />
-      </Switch>
-    </Router>
+          <Redirect to="/" />
+        </Switch>
+      </Router>
+    </div>
   );
 };
 

@@ -3,8 +3,7 @@ import { db } from "../firebase/firebase-config";
 
 
 export const SavePropietarioData = (propietario) => {
-  return async (dispatch, getState) => {
-    const uid = getState().auth.uid;
+  return async (dispatch) => {
     
     const addPropietario = {
         propietarioNombre: propietario.propietarioNombre,
@@ -15,12 +14,12 @@ export const SavePropietarioData = (propietario) => {
         propietarioOcupacion: propietario.propietarioOcupacion,
     };
     
-    const docRef = await db.collection(`${uid}/propietario/data`).add(addPropietario);
+    const docRef = await db.collection('propietarios').add(addPropietario);
     dispatch(addPropietarioData(docRef.id, addPropietario));
   };
 };
 
-export const addPropietarioData = (id, propietario) => ({
+export const addPropietarioData = ( id,propietario) => ({
   type: types.PropietarioData,
   payload: {
     id,

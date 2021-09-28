@@ -29,7 +29,7 @@ const Login = () => {
   }
 
   return (
-    <div className="Registro py-5 container text-center">
+    <div className="registro py-5 container text-center">
       <form className="form-signin" onSubmit={hadleLogin}>
         <h1 className="h4 mb-3 font-weight-normal">Inicio de sesión</h1>
 
