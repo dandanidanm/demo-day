@@ -19,22 +19,23 @@ import HistorialPaciente from "../components/form/HistorialPaciente";
 import HistorialClinica from "../components/form/HistorialClinica";
 import PlaceToVisit from "../components/inicio/PlaceToVisit";
 import { makeStyles } from "@material-ui/core/styles";
-import Header from "../components/inicio/Header";
 import Medscontainer from "../components/api/MedsContainer";
 import Calculator from "../components/Calculadora";
 import NavBar from "../components/NavBar";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
     backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg.jpg"})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundAttachment: "fixed",
     height: "100%",
-    width: "100vw"
-  }
+    width: "100vw",
+  },
 }));
 
 const AppRouter = () => {
@@ -62,7 +63,9 @@ const AppRouter = () => {
   return (
     <div className={classes.root}>
       <Router>
-        <NavBar />
+        <div className="text-center">
+          <NavBar />
+        </div>
         <Switch>
           <Route exact path="/" component={PlaceToVisit} />
           <PublicRoute
@@ -83,9 +86,15 @@ const AppRouter = () => {
             component={Medscontainer}
             isAuthenticated={isLoggedIn}
           />
-          <PublicRoute
+          <PrivateRoute
             exact
             path="/meds"
+            component={Medscontainer}
+            isAuthenticated={isLoggedIn}
+          />
+          <PublicRoute
+            exact
+            path="/calculator"
             component={Calculator}
             isAuthenticated={isLoggedIn}
           />

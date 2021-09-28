@@ -3,12 +3,9 @@ import {Form, Button} from 'react-bootstrap';
 function Calculator() {
   const [currentSum,setCurrentSum]=useState(0);
   const [clear,setClear]=useState(false);
-
-  useEffect(()=>{
-    document.querySelector('#result').value="";
-  },[])
   
   useEffect(()=>{
+    document.querySelector('#result').value="";
     if(clear)
     document.querySelector('#result').value="";
   })
